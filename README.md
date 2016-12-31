@@ -7,6 +7,10 @@ Emulate OS X window *titlebar* using **ES6** and **React**. Extracted from [kape
 npm run demo-dev
 ```
 
+## how looks
+
+![Example how looks](https://github.com/santomegonzalo/react-titlebar-osx/raw/master/bar-example.png "Real example")
+
 ## how to use it
 
 ```
