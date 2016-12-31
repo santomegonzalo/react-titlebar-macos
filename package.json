@@ -1,10 +1,10 @@
 {
   "name": "react-titlebar-osx",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "osx controls to use on electron with react",
   "main": "./lib/index",
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint 'lib/Titlebar.js'",
     "demo-bundle": "webpack --config ./webpack-demo.config.js",
     "demo-watch": "webpack --config ./webpack-demo.config.js --watch",
     "demo-dev": "npm run demo-watch & http-server demo",
