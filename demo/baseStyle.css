@@ -1,0 +1,10 @@
+body {
+  color: #333;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  max-width: 600px;
+  margin: 0 auto 200px;
+  padding: 10px;
+}

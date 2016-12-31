@@ -1,0 +1,61 @@
+{
+  "name": "react-titlebar",
+  "version": "1.0.0",
+  "description": "osx controls to use on electron with react",
+  "main": "./lib/index",
+  "scripts": {
+    "lint": "eslint .",
+    "demo-bundle": "webpack --config ./webpack-demo.config.js",
+    "demo-watch": "webpack --config ./webpack-demo.config.js --watch",
+    "demo-dev": "npm run demo-watch & http-server demo",
+    "umd-unminified": "webpack --config ./webpack-umd.config.js",
+    "umd-minified": "MINIFY=true webpack --config ./webpack-umd.config.js",
+    "umd": "npm run umd-unminified && npm run umd-minified",
+    "prepublish": "npm run umd"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santomegonzalo/electron-titlebar-react.git"
+  },
+  "author": "Gonzalo Santome",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/santomegonzalo/electron-titlebar-react/issues"
+  },
+  "homepage": "https://github.com/santomegonzalo/electron-titlebar-react#readme",
+  "keywords": [
+    "reactjs",
+    "react-component",
+    "react",
+    "electron",
+    "osx",
+    "titlebar"
+  ],
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  },
+  "peerDependencies": {
+    "react": "15.x.x",
+    "react-dom": "15.x.x"
+  },
+  "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.7",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-2": "^6.18.0",
+    "css-loader": "^0.26.1",
+    "eslint": "^3.12.2",
+    "eslint-config-airbnb-base": "^11.0.0",
+    "eslint-loader": "^1.6.1",
+    "eslint-plugin-import": "^2.2.0",
+    "http-server": "^0.9.0",
+    "node-sass": "^4.1.1",
+    "sass-loader": "^4.1.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.3"
+  }
+}
