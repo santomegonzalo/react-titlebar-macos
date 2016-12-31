@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/santomegonzalo/electron-titlebar-react.git"
+    "url": "git+https://github.com/santomegonzalo/react-titlebar-osx.git"
   },
   "author": "Gonzalo Santome",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/santomegonzalo/electron-titlebar-react/issues"
+    "url": "https://github.com/santomegonzalo/react-titlebar-osx/issues"
   },
-  "homepage": "https://github.com/santomegonzalo/electron-titlebar-react#readme",
+  "homepage": "https://github.com/santomegonzalo/react-titlebar-osx#readme",
   "keywords": [
     "reactjs",
     "react-component",
