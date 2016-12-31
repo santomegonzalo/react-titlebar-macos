@@ -1,6 +1,6 @@
 {
   "name": "react-titlebar-osx",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "osx controls to use on electron with react",
   "main": "./lib/index",
   "scripts": {
