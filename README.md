@@ -10,7 +10,7 @@ npm run demo-dev
 ## how to use it
 
 ```
-npm install react-titlebar-osx
+npm install --save react-titlebar-osx
 ```
 
 ```javascript
