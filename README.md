@@ -1,6 +1,6 @@
 # react-titlebar-osx
 
-Emulate OS X window title bar using ES6 and React. Extracted from [kapetan/titlebar](https://github.com/kapetan/titlebar).
+Emulate OS X window *titlebar* using **ES6** and **React**. Extracted from [kapetan/titlebar](https://github.com/kapetan/titlebar).
 
 ## demo
 ```
