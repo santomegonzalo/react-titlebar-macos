@@ -64,7 +64,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _ = __webpack_require__(179);
+	var _src = __webpack_require__(179);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -114,7 +114,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          null,
-	          _react2.default.createElement(_.Titlebar, {
+	          _react2.default.createElement(_src.Titlebar, {
 	            onClose: function onClose() {
 	              return _this2.handleClose();
 	            },
@@ -136,7 +136,7 @@
 	              marginTop: 100
 	            }
 	          },
-	          _react2.default.createElement(_.Titlebar, {
+	          _react2.default.createElement(_src.Titlebar, {
 	            onClose: function onClose() {
 	              return _this2.handleClose();
 	            },
@@ -164,7 +164,7 @@
 	            null,
 	            'Transparent Background'
 	          ),
-	          _react2.default.createElement(_.Titlebar, {
+	          _react2.default.createElement(_src.Titlebar, {
 	            transparent: true,
 	            onClose: function onClose() {
 	              return _this2.handleClose();
@@ -21638,7 +21638,9 @@
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	__webpack_require__(182);
+	var _Titlebar = __webpack_require__(182);
+
+	var _Titlebar2 = _interopRequireDefault(_Titlebar);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21646,7 +21648,7 @@
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint-disable class-methods-use-this */
 
 	var KEY_ALT = 18;
 
@@ -21669,6 +21671,8 @@
 	  _createClass(Titlebar, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
+	      this.setStyleHeader();
+
 	      document.body.addEventListener('keydown', this.handleKeyDown.bind(this)); // eslint-disable-line no-undef
 	      document.body.addEventListener('keyup', this.handleKeyUp.bind(this)); // eslint-disable-line no-undef
 	    }
@@ -21709,6 +21713,23 @@
 	        onMaximize();
 	      } else {
 	        onFullscreen();
+	      }
+	    }
+
+	    /**
+	     * Set style tag in header
+	     * in this way we can insert default css
+	     */
+
+	  }, {
+	    key: 'setStyleHeader',
+	    value: function setStyleHeader() {
+	      if (!document.getElementsByTagName('head')[0].querySelector('style[id="react-titlebar-osx"]')) {
+	        // eslint-disable-line no-undef
+	        var tag = document.createElement('style'); // eslint-disable-line no-undef
+	        tag.id = 'react-titlebar-osx';
+	        tag.innerHTML = _Titlebar2.default;
+	        document.getElementsByTagName('head')[0].appendChild(tag); // eslint-disable-line no-undef
 	      }
 	    }
 	  }, {
@@ -21871,8 +21892,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./Titlebar.scss", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./Titlebar.scss");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./Titlebar.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./Titlebar.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -21890,7 +21911,7 @@
 
 
 	// module
-	exports.push([module.id, ".titlebar {\n  padding: 0 3px;\n  display: flex;\n  background-color: #f6f6f6; }\n  .titlebar.transparent {\n    background-color: transparent; }\n  .titlebar.webkit-draggable {\n    -webkit-app-region: drag; }\n  .titlebar.alt svg.fullscreen-svg {\n    display: none; }\n  .titlebar.alt svg.maximize-svg {\n    display: block !important; }\n  .titlebar.webkit-draggable .titlebar-close,\n  .titlebar.webkit-draggable .titlebar-minimize,\n  .titlebar.webkit-draggable .titlebar-fullscreen {\n    -webkit-app-region: no-drag; }\n\n.titlebar-text {\n  flex-grow: 1;\n  text-align: center;\n  font-family: 'Helvetica Neue', Helvetica;\n  font-size: 14px;\n  line-height: 24px;\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  user-select: none;\n  cursor: default; }\n\n.titlebar-stoplight {\n  flex-grow: 0;\n  display: flex; }\n  .titlebar-stoplight .titlebar-close,\n  .titlebar-stoplight .titlebar-minimize,\n  .titlebar-stoplight .titlebar-fullscreen {\n    width: 10px;\n    height: 10px;\n    border-radius: 50%;\n    margin: 6px 4px;\n    line-height: 0; }\n  .titlebar-stoplight .titlebar-close {\n    border: 1px solid #e2463f;\n    background-color: #ff5f57;\n    margin-left: 6px; }\n    .titlebar-stoplight .titlebar-close:active {\n      border-color: #ad3934;\n      background-color: #bf4943; }\n    .titlebar-stoplight .titlebar-close svg {\n      width: 6px;\n      height: 6px;\n      margin-top: 2px;\n      margin-left: 2px;\n      opacity: 0; }\n  .titlebar-stoplight .titlebar-minimize {\n    border: 1px solid #e1a116;\n    background-color: #ffbd2e; }\n    .titlebar-stoplight .titlebar-minimize:active {\n      border-color: #ad7d15;\n      background-color: #bf9123; }\n    .titlebar-stoplight .titlebar-minimize svg {\n      width: 8px;\n      height: 8px;\n      margin-top: 1px;\n      margin-left: 1px;\n      opacity: 0; }\n  .titlebar-stoplight .titlebar-fullscreen,\n  .titlebar-stoplight .titlebar-maximize {\n    border: 1px solid #12ac28;\n    background-color: #28c940; }\n  .titlebar-stoplight .titlebar-fullscreen:active {\n    border-color: #128622;\n    background-color: #1f9a31; }\n  .titlebar-stoplight .titlebar-fullscreen svg.fullscreen-svg {\n    width: 6px;\n    height: 6px;\n    margin-top: 2px;\n    margin-left: 2px;\n    opacity: 0; }\n  .titlebar-stoplight .titlebar-fullscreen svg.maximize-svg {\n    width: 8px;\n    height: 8px;\n    margin-top: 1px;\n    margin-left: 1px;\n    opacity: 0;\n    display: none; }\n  .titlebar-stoplight:hover svg,\n  .titlebar-stoplight:hover svg.fullscreen-svg,\n  .titlebar-stoplight:hover svg.maximize-svg {\n    opacity: 1; }\n\n.titlebar:after,\n.titlebar-stoplight:after {\n  content: ' ';\n  display: table;\n  clear: both; }\n", ""]);
+	exports.push([module.id, ".titlebar {\n  padding: 0 3px;\n  display: flex;\n  background-color: #f6f6f6; }\n  .titlebar.transparent {\n    background-color: transparent; }\n  .titlebar.webkit-draggable {\n    -webkit-app-region: drag; }\n  .titlebar.alt svg.fullscreen-svg {\n    display: none; }\n  .titlebar.alt svg.maximize-svg {\n    display: block !important; }\n  .titlebar.webkit-draggable .titlebar-close, .titlebar.webkit-draggable .titlebar-minimize, .titlebar.webkit-draggable .titlebar-fullscreen {\n    -webkit-app-region: no-drag; }\n\n.titlebar-text {\n  flex-grow: 1;\n  text-align: center;\n  font-family: 'Helvetica Neue', Helvetica;\n  font-size: 14px;\n  line-height: 24px;\n  -webkit-touch-callout: none;\n  -webkit-user-select: none;\n  user-select: none;\n  cursor: default; }\n\n.titlebar-stoplight {\n  flex-grow: 0;\n  display: flex; }\n  .titlebar-stoplight .titlebar-close,\n  .titlebar-stoplight .titlebar-minimize,\n  .titlebar-stoplight .titlebar-fullscreen {\n    width: 10px;\n    height: 10px;\n    border-radius: 50%;\n    margin: 6px 4px;\n    line-height: 0; }\n  .titlebar-stoplight .titlebar-close {\n    border: 1px solid #e2463f;\n    background-color: #ff5f57;\n    margin-left: 6px; }\n    .titlebar-stoplight .titlebar-close:active {\n      border-color: #ad3934;\n      background-color: #bf4943; }\n    .titlebar-stoplight .titlebar-close svg {\n      width: 6px;\n      height: 6px;\n      margin-top: 2px;\n      margin-left: 2px;\n      opacity: 0; }\n  .titlebar-stoplight .titlebar-minimize {\n    border: 1px solid #e1a116;\n    background-color: #ffbd2e; }\n    .titlebar-stoplight .titlebar-minimize:active {\n      border-color: #ad7d15;\n      background-color: #bf9123; }\n    .titlebar-stoplight .titlebar-minimize svg {\n      width: 8px;\n      height: 8px;\n      margin-top: 1px;\n      margin-left: 1px;\n      opacity: 0; }\n  .titlebar-stoplight .titlebar-fullscreen,\n  .titlebar-stoplight .titlebar-maximize {\n    border: 1px solid #12ac28;\n    background-color: #28c940; }\n  .titlebar-stoplight .titlebar-fullscreen:active {\n    border-color: #128622;\n    background-color: #1f9a31; }\n  .titlebar-stoplight .titlebar-fullscreen svg.fullscreen-svg {\n    width: 6px;\n    height: 6px;\n    margin-top: 2px;\n    margin-left: 2px;\n    opacity: 0; }\n  .titlebar-stoplight .titlebar-fullscreen svg.maximize-svg {\n    width: 8px;\n    height: 8px;\n    margin-top: 1px;\n    margin-left: 1px;\n    opacity: 0;\n    display: none; }\n  .titlebar-stoplight:hover svg, .titlebar-stoplight:hover svg.fullscreen-svg, .titlebar-stoplight:hover svg.maximize-svg {\n    opacity: 1; }\n\n.titlebar:after,\n.titlebar-stoplight:after {\n  content: ' ';\n  display: table;\n  clear: both; }\n", ""]);
 
 	// exports
 

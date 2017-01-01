@@ -1,18 +1,26 @@
 {
   "name": "react-titlebar-osx",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "osx controls to use on electron with react",
-  "main": "./lib/index",
+  "main": "lib/index",
   "scripts": {
     "lint": "eslint 'lib/Titlebar.js'",
     "demo-bundle": "webpack --config ./webpack-demo.config.js",
     "demo-watch": "webpack --config ./webpack-demo.config.js --watch",
     "demo-dev": "npm run demo-watch & http-server demo",
-    "umd-unminified": "webpack --config ./webpack-umd.config.js",
-    "umd-minified": "MINIFY=true webpack --config ./webpack-umd.config.js",
-    "umd": "npm run umd-unminified && npm run umd-minified",
-    "prepublish": "npm run umd"
+    "build:css": "sass --update --sourcemap=none src/css:src/css --style expanded && sass --update --sourcemap=none src/css:lib/css --style expanded",
+    "build:umd:unmin": "webpack --config ./webpack-umd.config.js",
+    "build:umd:min": "MINIFY=true webpack --config ./webpack-umd.config.js",
+    "build:umd": "npm run build:umd:unmin && npm run build:umd:min",
+    "build:commonjs": "mkdir -p lib && babel ./src -d lib",
+    "publish": "npm run build:css && npm run build:commonjs && npm run build:umd"
   },
+  "files": [
+    "*.md",
+    "umd",
+    "lib",
+    "src"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/santomegonzalo/react-titlebar-osx.git"
@@ -33,6 +41,7 @@
   ],
   "dependencies": {
     "classnames": "^2.2.5",
+    "defaultcss": "^1.1.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2"
   },
@@ -41,6 +50,7 @@
     "react-dom": "15.x.x"
   },
   "devDependencies": {
+    "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.7",

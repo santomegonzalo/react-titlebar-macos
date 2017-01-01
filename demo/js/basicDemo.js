@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Titlebar } from '../..';
+import { Titlebar } from '../../src';
 
 class Demo extends React.Component {
 
