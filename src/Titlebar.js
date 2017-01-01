@@ -67,7 +67,6 @@ class Titlebar extends React.Component {
    */
   setStyleHeader() {
     if (!document.getElementsByTagName('head')[0].querySelector('style[id="react-titlebar-osx"]')) { // eslint-disable-line no-undef
-      console.log(this.styles());
       const tag = document.createElement('style'); // eslint-disable-line no-undef
       tag.id = 'react-titlebar-osx';
       tag.innerHTML = this.styles();
