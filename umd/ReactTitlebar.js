@@ -206,6 +206,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          draggable = _props2.draggable,
 	          title = _props2.title,
 	          transparent = _props2.transparent,
+	          padding = _props2.padding,
 	          onClose = _props2.onClose,
 	          onMinimize = _props2.onMinimize;
 	      var keyAltDown = this.state.keyAltDown;
@@ -217,7 +218,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        alt: keyAltDown
 	      });
 
-	      return _react2.default.createElement('div', { className: clazz }, _react2.default.createElement('div', { className: 'titlebar-stoplight' }, _react2.default.createElement('div', { className: 'titlebar-close', onClick: onClose }, _react2.default.createElement('svg', { x: '0px', y: '0px', viewBox: '0 0 6.4 6.4' }, _react2.default.createElement('polygon', { fill: '#4d0000', points: '6.4,0.8 5.6,0 3.2,2.4 0.8,0 0,0.8 2.4,3.2 0,5.6 0.8,6.4 3.2,4 5.6,6.4 6.4,5.6 4,3.2' }))), _react2.default.createElement('div', { className: 'titlebar-minimize', onClick: onMinimize }, _react2.default.createElement('svg', { x: '0px', y: '0px', viewBox: '0 0 8 1.1' }, _react2.default.createElement('rect', { fill: '#995700', width: '8', height: '1.1' }))), _react2.default.createElement('div', { className: 'titlebar-fullscreen', onClick: this.handleMaximize }, _react2.default.createElement('svg', { className: 'fullscreen-svg', x: '0px', y: '0px', viewBox: '0 0 6 5.9' }, _react2.default.createElement('path', { fill: '#006400', d: 'M5.4,0h-4L6,4.5V0.6C5.7,0.6,5.3,0.3,5.4,0z' }), _react2.default.createElement('path', { fill: '#006400', d: 'M0.6,5.9h4L0,1.4l0,3.9C0.3,5.3,0.6,5.6,0.6,5.9z' })), _react2.default.createElement('svg', { className: 'maximize-svg', x: '0px', y: '0px', viewBox: '0 0 7.9 7.9' }, _react2.default.createElement('polygon', { fill: '#006400', points: '7.9,4.5 7.9,3.4 4.5,3.4 4.5,0 3.4,0 3.4,3.4 0,3.4 0,4.5 3.4,4.5 3.4,7.9 4.5,7.9 4.5,4.5' })))), title && _react2.default.createElement('div', { className: 'titlebar-text' }, 'title'));
+	      var ztyle = {
+	        paddingTop: padding,
+	        paddingBottom: padding
+	      };
+
+	      return _react2.default.createElement('div', { className: clazz, style: ztyle }, _react2.default.createElement('div', { className: 'titlebar-stoplight' }, _react2.default.createElement('div', { className: 'titlebar-close', onClick: onClose }, _react2.default.createElement('svg', { x: '0px', y: '0px', viewBox: '0 0 6.4 6.4' }, _react2.default.createElement('polygon', { fill: '#4d0000', points: '6.4,0.8 5.6,0 3.2,2.4 0.8,0 0,0.8 2.4,3.2 0,5.6 0.8,6.4 3.2,4 5.6,6.4 6.4,5.6 4,3.2' }))), _react2.default.createElement('div', { className: 'titlebar-minimize', onClick: onMinimize }, _react2.default.createElement('svg', { x: '0px', y: '0px', viewBox: '0 0 8 1.1' }, _react2.default.createElement('rect', { fill: '#995700', width: '8', height: '1.1' }))), _react2.default.createElement('div', { className: 'titlebar-fullscreen', onClick: this.handleMaximize }, _react2.default.createElement('svg', { className: 'fullscreen-svg', x: '0px', y: '0px', viewBox: '0 0 6 5.9' }, _react2.default.createElement('path', { fill: '#006400', d: 'M5.4,0h-4L6,4.5V0.6C5.7,0.6,5.3,0.3,5.4,0z' }), _react2.default.createElement('path', { fill: '#006400', d: 'M0.6,5.9h4L0,1.4l0,3.9C0.3,5.3,0.6,5.6,0.6,5.9z' })), _react2.default.createElement('svg', { className: 'maximize-svg', x: '0px', y: '0px', viewBox: '0 0 7.9 7.9' }, _react2.default.createElement('polygon', { fill: '#006400', points: '7.9,4.5 7.9,3.4 4.5,3.4 4.5,0 3.4,0 3.4,3.4 0,3.4 0,4.5 3.4,4.5 3.4,7.9 4.5,7.9 4.5,4.5' })))), title && _react2.default.createElement('div', { className: 'titlebar-text' }, title));
 	    }
 
 	    // TODO ugly way to fix the styles
@@ -235,10 +241,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	Titlebar.defaultProps = {
 	  draggable: false,
 	  title: null,
-	  transparent: false
+	  transparent: false,
+	  padding: 3
 	};
 
 	Titlebar.propTypes = {
+	  padding: _react.PropTypes.number,
 	  title: _react.PropTypes.string,
 	  transparent: _react.PropTypes.bool,
 	  draggable: _react.PropTypes.bool,
