@@ -49,7 +49,21 @@ class Demo extends React.Component {
             marginTop: 100,
           }}
         >
-          <div>Transparent Background</div>
+          <Titlebar
+            onClose={() => this.handleClose()}
+            onMaximize={() => this.handleMaximize()}
+            onFullscreen={() => this.handleFullscreen()}
+            onMinimize={() => this.handleMinimize()}
+            padding={10}
+            title="Awesome titlebar - With Padding"
+          />
+        </div>
+        <div
+          style={{
+            marginTop: 100,
+          }}
+        >
+          <div style={{fontFamily: 'Arial'}}>Transparent Background</div>
           <Titlebar
             transparent
             onClose={() => this.handleClose()}

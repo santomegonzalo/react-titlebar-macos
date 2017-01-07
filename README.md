@@ -23,6 +23,8 @@ import { Titlebar } from 'react-titlebar-osx';
 
 ```javascript
 <Titlebar
+   text="Awesome tool"
+   draggable={true}
    onClose={() => this.handleClose()}
    onMaximize={() => this.handleMaximize()}
    onFullscreen={() => this.handleFullscreen()}
@@ -35,7 +37,8 @@ import { Titlebar } from 'react-titlebar-osx';
 - `draggable` (default `false`): Enable dragging.
 - `transparent` (default `false`): Transparent background.
 - `text`: Enable centered text.
-- `onClose`: called when close is clicked.
-- `onMinimize`: called when minimized is clicked.
-- `onMaximize`: called when maximize is clicked.
-- `onFullscreen`: called when fullscreen is clicked.
+- `padding`: Add more space to the top and bottom.
+- `onClose`: (required) called when close is clicked.
+- `onMinimize`: (required) called when minimized is clicked.
+- `onMaximize`: (required) called when maximize is clicked.
+- `onFullscreen`: (required) called when fullscreen is clicked.

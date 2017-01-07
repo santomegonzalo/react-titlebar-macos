@@ -10,6 +10,7 @@ class Titlebar extends React.Component {
     draggable: false,
     title: null,
     transparent: false,
+    padding: 3,
   }
 
   constructor(props, defaultProps) {
@@ -79,6 +80,7 @@ class Titlebar extends React.Component {
       draggable,
       title,
       transparent,
+      padding,
       onClose,
       onMinimize,
     } = this.props;
@@ -91,8 +93,13 @@ class Titlebar extends React.Component {
       alt: keyAltDown,
     });
 
+    const ztyle = {
+      paddingTop: padding,
+      paddingBottom: padding,
+    };
+
     return (
-      <div className={clazz}>
+      <div className={clazz} style={ztyle}>
         <div className="titlebar-stoplight">
           <div className="titlebar-close" onClick={onClose}>
             <svg x="0px" y="0px" viewBox="0 0 6.4 6.4">
@@ -116,7 +123,7 @@ class Titlebar extends React.Component {
         </div>
         {
           title &&
-            <div className="titlebar-text">title</div>
+            <div className="titlebar-text">{title}</div>
         }
       </div>
     );
@@ -219,6 +226,7 @@ class Titlebar extends React.Component {
 }
 
 Titlebar.propTypes = {
+  padding: PropTypes.number,
   title: PropTypes.string,
   transparent: PropTypes.bool,
   draggable: PropTypes.bool,
